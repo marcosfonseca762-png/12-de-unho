@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - Michelly e Marcos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">NETFLIX</div>
+        <nav class="nav-links">
+            <a href="#" class="active">Início</a>
+            <a href="#">Séries</a>
+            <a href="#">Filmes</a>
+            <a href="#">Minha Lista</a>
+        </nav>
+    </header>
+
+    <main class="hero" style="background: linear-gradient(to right, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0) 80%), url('sua-foto-principal.jpg') no-repeat center center/cover;">
+        <div class="hero-content">
+            <div class="badge-n"><span>N</span> CASAIS</div>
+            <h1 class="main-title">Michelly e Marcos <span class="heart">❤️</span></h1>
+            
+            <div class="meta-info">
+                <span class="top-10">Top 10</span>
+                <span class="subtitle">Melhores casais do mundo</span>
+                <span class="age-rating">L</span>
+                <span class="duration">1 Grande Amor</span>
+            </div>
+
+            <p class="description">
+                Olhei nos olhos dele e meu mundo parou.<br>
+                Foi naquele instante que eu entendi;<br>
+                era mais do que eu imaginar.<br>
+                Alegre, Gentil, atencioso, carinhoso e companheiro.<br>
+                Ele era tudo que eu precisava para amar eternamente.
+            </p>
+
+            <div class="action-buttons">
+                <button class="btn-play" onclick="abrirVideo('seu-video1.mp4')">▶ Play</button>
+                <button class="btn-favorite">✓ Favorito</button>
+            </div>
+        </div>
+    </main>
+
+    <section class="video-section">
+        <h2>Nossos Melhores Momentos</h2>
+        <div class="video-grid">
+            
+            <div class="video-card" onclick="abrirVideo('seu-video1.mp4')">
+                <video src="seu-video1.mp4" poster="miniatura1.jpg" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video>
+            </div>
+
+            <div class="video-card" onclick="abrirVideo('seu-video2.mp4')">
+                <video src="seu-video2.mp4" poster="miniatura2.jpg" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video>
+            </div>
+
+            <div class="video-card" onclick="abrirVideo('seu-video3.mp4')">
+                <video src="seu-video3.mp4" poster="miniatura3.jpg" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video>
+            </div>
+
+            <div class="video-card" onclick="abrirVideo('seu-video4.mp4')">
+                <video src="seu-video4.mp4" poster="miniatura4.jpg" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video>
+            </div>
+
+            <div class="video-card" onclick="abrirVideo('seu-video5.mp4')">
+                <video src="seu-video5.mp4" poster="miniatura5.jpg" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video>
+            </div>
+
+            <div class="video-card" onclick="abrirVideo('seu-video6.mp4')">
+                <video src="seu-video6.mp4" poster="miniatura6.jpg" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video>
+            </div>
+
+            <div class="video-card" onclick="abrirVideo('seu-video7.mp4')">
+                <video src="seu-video7.mp4" poster="miniatura7.jpg" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="like-badge">
+        <span class="heart-icon">❤️</span>
+        <span class="like-text">Curtiu!</span>
+    </div>
+
+    <div id="videoModal" class="modal">
+        <span class="close-modal" onclick="fecharVideo()">&times; Voltar</span>
+        <video id="modalPlayer" controls autoplay></video>
+    </div>
+
+    <script>
+        const modal = document.getElementById('videoModal');
+        const player = document.getElementById('modalPlayer');
+
+        function abrirVideo(videoSrc) {
+            modal.style.display = "flex";
+            player.src = videoSrc;
+            player.play();
+            player.muted = false; // Garante que o vídeo principal toque com som
+        }
+
+        function fecharVideo() {
+            modal.style.display = "none";
+            player.pause();
+            player.src = ""; // Limpa o vídeo para parar de carregar em segundo plano
+        }
+
+        // Fecha o vídeo se ela apertar a tecla 'Esc'
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                fecharVideo();
+            }
+        });
+    </script>
+
+</body>
+</html>
